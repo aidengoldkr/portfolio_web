@@ -203,3 +203,21 @@ footer {
     transform: scale(1.1);
     transition: transform 0.2s;
 }
+
+/* 기본은 PC용으로 (모바일은 숨김) */
+.mobile-text {
+    display: none;
+}
+.desktop-text {
+    display: inline;
+}
+
+/* 모바일용 (화면 폭 600px 이하) */
+@media (max-width: 600px) {
+    .mobile-text {
+        display: inline;
+    }
+    .desktop-text {
+        display: none;
+    }
+}
