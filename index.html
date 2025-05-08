@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>김건우 포트폴리오</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f9fafb;
+            color: #4c4c4c;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #ddd;
+        }
+
+        nav a {
+            margin-left: 1rem;
+            text-decoration: none;
+            color: #4c4c4c;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+            color: #888888;
+        }
+
+        a {
+            text-decoration: none;
+            color: #4c4c4c;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #888888;
+        }
+
+        .hero {
+        text-align: center;
+        padding: 100px 20px;
+        background: #3F5EFB;
+        background: linear-gradient(180deg, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
+    }
+
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+            color: #ffffff;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #1e85f7;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #0c4b94;
+        }
+
+        section {
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .projects {
+            display: grid;
+            gap: 20px;
+        }
+
+        .project-card {
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            color: #4c4c4c;
+            border: 1px solid #ddd;
+        }
+
+        .contact-icons a {
+            margin: 0 10px;
+            font-size: 1.5rem;
+            color: #4c4c4c;
+            text-decoration: none;
+        }
+
+        .contact-icons a:hover {
+            color: #888888;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: #b0b0b0;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <a href="#about">소개</a>
+            <a href="#projects">프로젝트</a>
+            <a href="#contact">연락처</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>안녕하세요, 저는 김건우입니다 👋</h2>
+        <p>창의적이고 성장해가는 주니어소프트웨어 개발자이며<br>자율주행자동차 개발자를 꿈꾸고 있습니다</p>
+        <a href="https://buymeacoffee.com/" class="btn">커피 사주기</a>
+    </section>
+
+    <section id="edu" style="margin-bottom: -10px; padding-bottom: 0px;">
+        <h1 style="font-size: 2.2rem; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; margin-bottom: 1.5rem;">🎓 다닌 곳</h1>
+        <p style="font-size: 1.2rem; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; line-height: 1.1;">
+            <a href="https://dankook.sen.hs.kr/">단국대학교부속소프트웨어고등학교</a> 재학
+        </p>
+        <p style="font-size: 1.2rem; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; line-height: 1.1;">
+            <a href="https://ipceo.kaist.ac.kr/">KAIST IP 영재기업인교육원</a> 14기 수료
+        </p>
+        <p style="font-size: 1.2rem; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; line-height: 1.1;">
+            <a href="https://www.ip-edu.net/home/kor/contents.do?menuPos=1">구리남양주교육청부설 도농발명교육센터</a> 수료
+        </p>
+    </section>
+    
+    <section id="prizes" style="margin-bottom: -10px; padding-bottom: 0px;">
+        <h1 style="font-size: 2.2rem; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; margin-bottom: 1.5rem;">🏆 수상이력</h1>
+        <p style="font-size: 1.2rem; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; line-height: 1.6; font-weight: 500;">2017 전국어린이코딩경진대회 블록코딩부분 우수상</p>
+        <p style="font-size: 1.2rem; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; line-height: 1.6; font-weight: 500;">2020 구리남양주교육지원청 학생과학발명품경진대회 동상</p>
+        <p style="font-size: 1.2rem; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; line-height: 1.6; font-weight: 500;">2021 과학기술정보통신부장관 과학의날 상</p>
+        <p style="font-size: 1.2rem; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; line-height: 1.6; font-weight: 500;">2021 경기도교육감 경기도학생과학발명품경진대회 우수상</p>
+        <p style="font-size: 1.2rem; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; line-height: 1.6; font-weight: 500;">2022 구리남양주교육지원청 학생과학발명품경진대회 금상</p>
+        <p style="font-size: 1.2rem; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; line-height: 1.6; font-weight: 500;">2022 한국과학교육단체총연합회 한국과학창의력대회 동상</p>
+        <p style="font-size: 1.2rem; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; line-height: 1.6; font-weight: 500;">2022 한국발명진흥회 특허청 YIP 아이디어 프로그램 수료 및 장려상</p>
+        <p style="font-size: 1.2rem; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; line-height: 1.6; font-weight: 500;">2023 KAIST IP 영재기업인 교육원 7월 집중교육 미래기술 팀프로젝트 우수상</p>
+    </section>
+    
+    <section id="others" style="margin-bottom: -10px; padding-bottom: 0px;">
+        <h1 style="font-size: 2.2rem; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; margin-bottom: 1.5rem;">📝 그 외</h1>
+        <p style="font-size: 1.2rem; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; line-height: 1.1; font-weight: 500;">Cos Pro Python 2급 자격증</p>
+        <p style="font-size: 1.2rem; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; line-height: 1.1; font-weight: 500;">트리즈전문가 1 수준 자격증</p>
+        <p style="font-size: 1.2rem; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; line-height: 1.1; font-weight: 500;">특허출원 8건</p>
+        <p style="font-size: 1.2rem; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; line-height: 1.1; font-weight: 500;">특허등록 1건</p>
+    </section>
+    
+    
+    
+    
+    
+
+    <section id="projects">
+        <h3>주요 프로젝트</h3>
+        <div class="projects">
+            <div class="project-card">
+                <h2>따릉이 길찾기 챗봇</h2>
+                <p>서울시 공유자전거 따릉이를 이용한 길찾기 서비스를 제공하는 카카오톡 챗봇입니다, 파이썬과 AWS를 통해 개발했습니다.</p>
+                <a href="https://github.com/aidengoldkr/Ddareungi-Navigation-Kakao-ChatBot" class="btn">자세히 보기</a>
+            </div>
+            <div class="project-card">
+                <h4>Comming soon</h4>
+                <p>-.</p>
+                <a href="" class="btn">자세히 보기</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="text-align:center;">
+        <h3>연락처</h3>
+        <p>아래 채널을 통해 언제든지 연락주세요!</p>
+        <div class="contact-icons">
+            <a href="mailto:aidengoldkr@gmail.com" class="icon email"></a>
+            <a href="https://www.instagram.com/kw_k.9119" target="_blank" class="icon instagram"></a>
+            <a href="https://github.com/aidengoldkr" target="_blank" class="icon github"></a>
+            <a href="https://www.acmicpc.net/user/aidengoldkr" target="_blank" class="icon backjoon"></a>
+        </div>
+        
+        
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2025 김건우. All rights reserved.
+    </footer>
+
+</body>
+
+</html>
