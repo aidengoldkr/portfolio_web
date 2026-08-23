@@ -194,23 +194,23 @@
   },
   {
     "id": "essentia-science",
-    "name": "ESSENTIA Science",
+    "name": "ESSENTIA Platform",
     "slug": "essentia-science",
-    "tagline": "Integrated operating platform for student research organizations",
-    "summary": "Web-based platform centralizing member, project, forum, and resource management",
-    "description": "ESSENTIA Science is a web-based organizational management platform designed for student-led research communities. Rather than functioning as a simple homepage, the system integrates member onboarding, organizational structure, permissions, project tracking, forums, voting systems, and archives into a single operational platform. The product translates real-world organizational workflows into software architecture, reducing fragmentation caused by scattered tools and enabling long-term operational continuity.",
-    "homeDescription": "An operating platform that ties a student research organization's members, projects, forum, voting, and archive into one. It moves the real organizational flow into product structure to unify management and records.",
+    "tagline": "The operating system for a student science society",
+    "summary": "Web platform running a society's members, approvals, projects, and finances",
+    "description": "ESSENTIA Platform is a single web system that runs everything for ESSENTIA Science, a student science & math society founded in July 2025 and registered as a non-profit in 2026. It spans membership, org chart, research projects, forum, voting, document archive, finance, sponsorships, and an admin console across 203 REST endpoints, 70 screens, and 38 database tables. The core of the work was moving paper project proposals and budget requests into electronic forms and encoding a three-step sequential approval flow — department head, operations head, then society president — so the system enforces it. Admissions were unified into one pipeline from application through screening, interview, acceptance, and account provisioning, with every state change written to an audit log so records survive leadership turnover. It began as a Next.js full-stack app, then all 85 server actions were migrated to REST and the product was split into a static frontend and a Spring Boot API for permission safety and maintainability. It runs the society's real operations today at www.essentia-sci.org.",
+    "homeDescription": "An operating platform tying together ESSENTIA's members, electronic approvals, projects, finances, and archive. Paper proposals and budget requests became a three-step approval flow, and the system runs the society's real operations.",
     "category": "web",
     "status": "launched",
     "isMain": true,
     "featuredOrder": 3,
     "period": {
-      "start": null,
+      "start": "2026-02",
       "end": null
     },
     "links": {
-      "live": null,
-      "github": null,
+      "live": "https://www.essentia-sci.org",
+      "github": "https://github.com/ESSENTIA-Science",
       "demo": null,
       "article": null
     },
@@ -221,55 +221,91 @@
     },
     "techStack": {
       "frontend": [
-        "React",
-        "TypeScript"
+        "Next.js 16",
+        "React 19",
+        "TypeScript",
+        "CSS Modules",
+        "TanStack Query"
       ],
       "backend": [
-        "Node.js"
+        "Spring Boot 4",
+        "Java 21",
+        "Spring Security",
+        "JPA / Hibernate",
+        "Flyway"
       ],
-      "database": [],
-      "infra": [],
-      "ai": [
-        "AI"
+      "database": [
+        "PostgreSQL 17",
+        "Neon"
       ],
-      "tools": []
+      "infra": [
+        "AWS EC2",
+        "S3",
+        "CloudFront",
+        "Docker",
+        "Caddy",
+        "GitHub Actions"
+      ],
+      "ai": [],
+      "tools": [
+        "Gradle",
+        "Testcontainers",
+        "PDFBox"
+      ]
     },
     "team": {
       "type": "solo",
       "size": 1,
       "myRoles": [
-        "Web Developer",
-        "Product Structure",
-        "Frontend"
+        "Tech Lead",
+        "Backend",
+        "Frontend",
+        "Infra"
       ],
-      "contribution": "Designed the web product structure and handled the full implementation"
+      "contribution": "As head of the IT department, owned the whole stack solo — architecture, backend and frontend implementation, AWS infrastructure, deployment, and operations"
     },
     "details": {
-      "problem": "The student research organization was run with its homepage, member roster, project records, and shared resources scattered across different tools. When information is fragmented, handover is hard, it's difficult to trace who did what with which permission, and operating costs rise steeply as the organization grows.",
-      "solution": "We built an integrated management platform that runs members, organization, projects, forum, voting, and archives on a single permission system. By mapping the organization's actual work units directly to features, the staff can manage the organization within one system without separate tools.",
+      "problem": "The society ran on paper forms and individual messages. Project proposals and budget requests had to be printed and signed by hand, while admissions — application, screening, interview, acceptance, account provisioning — lived in one officer's memory and chat history. As membership grew it became impossible to trace who approved what and when, and every leadership handover erased the record.",
+      "solution": "An integrated operating platform that maps the society's real units of work directly onto domain models. Proposals and budget requests became electronic forms with a system-enforced three-step sequential approval, and admissions were connected into a single pipeline from application to account provisioning. Every state change is written to an audit log so handovers and traceability hold up over time.",
       "keyFeatures": [
         {
-          "title": "Member & organization management",
-          "description": "Integrates member registration, roles and permissions, and organizational structure. Access is separated by permission so operations don't break down as the organization grows."
+          "title": "Electronic approval for proposals and budgets",
+          "description": "Project proposals and budget requests are filed as electronic forms and routed through a three-step sequential approval — department head, operations head, society president. Approved documents are rendered to PDF server-side for archiving and printing."
         },
         {
-          "title": "Projects & forum",
-          "description": "Runs research project progress alongside forum-based discussion spaces so activity and records continue within the same context."
+          "title": "Membership and permission pipeline",
+          "description": "Admissions run as one flow from application through screening, interview, acceptance, and account provisioning, layered on a four-tier permission model (officer, member, non-member, anonymous) that also drives the org chart and department structure."
         },
         {
-          "title": "Voting & archive",
-          "description": "Provides voting for organizational decisions and a resource-sharing archive, accumulating both the decision process and the outputs in one place."
+          "title": "Static frontend, API-owned logic",
+          "description": "The frontend ships zero server code — authentication, permissions, and business logic all live in the backend. Dynamic routes lost to static export were restored with a CloudFront Function viewer-request rewrite, and link previews with OG cards the backend renders on the fly using Java2D."
+        },
+        {
+          "title": "Identity-repeated verification",
+          "description": "175 Testcontainers-based integration tests cover policy and rules; 103 HTTP E2E tests against the live server cover wiring, serialization, and authorization. The E2E suite replays the same requests across officer, member, non-member, and anonymous sessions so authorization can't appear to pass by testing only the privileged path."
         }
       ],
-      "architecture": "A React·TypeScript frontend and Node.js backend structure the permission and data flow, with AI integrated into some features to improve operational convenience. The information structure was designed so members, organization, projects, and resources connect on a single data model.",
-      "learnings": "While translating a real organization's operational flow into product structure, I learned that requirement organization and information structure design—more than feature implementation—determine a system's success. Since the users are operators, a consistent permission model and clear information hierarchy mattered more than flashy features."
+      "architecture": "Requests pass through Cloudflare DNS: the web side hits CloudFront (with WAF and OAC) in front of an S3 bucket holding the Next.js static export, while the API resolves to an Elastic IP on an EC2 t4g.small (ARM) where Caddy auto-renews TLS and reverse-proxies a Dockerized Spring Boot 4 service. Data lives in Neon PostgreSQL 17, with Flyway as the sole owner of the schema (ddl-auto set to validate). File uploads use presigned URLs — the browser PUTs straight to S3 and the server re-verifies with headObject. Deployment runs on GitHub Actions assuming a role via OIDC with no long-lived keys: build and test, push to ECR, swap the container through SSM RunCommand; the web pipeline syncs S3 and invalidates CloudFront. Running Caddy instead of a load balancer keeps the whole system at roughly $18 a month.",
+      "learnings": "Static export buys cost and stability at the price of SEO and dynamic routing — rather than hide that, I documented the trade-off and bought back what mattered with a CloudFront rewrite and server-rendered OG cards. Neon has no Seoul region, so I accepted a 77–106ms round trip; at 33 members, explicitly choosing an affordable cost beats chasing the optimum. And catching a misplaced X-Forwarded-For trust boundary — which would have allowed rate-limit bypass and audit-log poisoning at once — taught me that permissions are held not by the code that checks them but by the way you design their verification."
     },
     "achievements": {
       "awards": [],
       "metrics": [
         {
-          "label": "Scope",
-          "value": "Members, organization, projects, forum, voting, and archive integrated"
+          "label": "REST endpoints",
+          "value": "203"
+        },
+        {
+          "label": "Screens / DB tables",
+          "value": "70 / 38"
+        },
+        {
+          "label": "Automated checks",
+          "value": "175 integration + 103 E2E"
+        },
+        {
+          "label": "Running cost",
+          "value": "~$18 / month"
         }
       ],
       "press": []

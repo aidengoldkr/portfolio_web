@@ -45,5 +45,9 @@
   "icaros": {
     "type": "iframe",
     "src": "https://sim.icaros.kr/"
+  },
+  "essentia-science": {
+    "type": "iframe",
+    "src": "https://www.essentia-sci.org/"
   }
 }

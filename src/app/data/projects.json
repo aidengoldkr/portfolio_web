@@ -194,23 +194,23 @@
     },
     {
       "id": "essentia-science",
-      "name": "ESSENTIA Science",
+      "name": "ESSENTIA Platform",
       "slug": "essentia-science",
-      "tagline": "학생 연구 조직 운영을 위한 통합 관리 플랫폼",
-      "summary": "학생 연구 조직의 회원·프로젝트·자료를 통합 운영하는 관리 플랫폼",
-      "description": "단순 단체 홈페이지를 넘어, 회원·조직·프로젝트·포럼·투표·자료실을 한 곳에서 운영할 수 있도록 설계한 웹 기반 단체 관리 시스템. 학생 연구 조직 ESSENTIA Science의 실제 운영 흐름—신규 회원 가입, 조직 구조와 권한 관리, 연구 프로젝트 진행, 의사결정 투표, 자료 아카이빙—을 그대로 제품 구조로 옮긴 설계. 흩어진 도구로 운영되던 조직 업무를 단일 플랫폼으로 통합해, 관리 부담을 줄이고 기록이 한 곳에 축적되도록 한 구조.",
-      "homeDescription": "학생 연구 조직의 회원, 프로젝트, 포럼, 투표, 자료실을 하나로 묶은 운영 플랫폼. 실제 조직 운영 흐름을 제품 구조로 옮겨 관리와 기록을 통합한 시스템.",
+      "tagline": "학생 과학회 운영 전체를 옮긴 통합 운영 플랫폼",
+      "summary": "회원·전자결재·프로젝트·재정까지 학회 운영 전반을 담은 웹 플랫폼",
+      "description": "학생 과학·수학회 ESSENTIA Science(2025년 7월 창립, 2026년 비영리 임의단체 등록)의 운영 전반을 하나의 웹으로 옮긴 통합 플랫폼. 회원·조직도·연구 프로젝트·게시판·투표·자료실·재정·후원·관리자 콘솔까지 REST 엔드포인트 203개, 화면 70개, DB 테이블 38개 규모로 구현했다. 핵심은 종이 양식과 개인 연락으로 돌던 프로젝트 계획서와 예산신청서를 전자 문서로 옮기고, 학부장→운영부장→학회장으로 이어지는 3단 순차 결재를 시스템이 강제하도록 만든 것. 입회도 지원-심사-면접-합격-계정 개통까지 하나의 파이프라인으로 묶고, 모든 상태 변경을 감사 로그로 남겨 임원이 교체돼도 기록이 남도록 설계했다. Next.js 풀스택으로 시작했지만 권한 안전성과 유지보수를 위해 서버 액션 85개를 REST로 전량 이관하며 정적 프론트엔드와 Spring Boot API로 분리했고, 현재 www.essentia-sci.org에서 실제 학회 운영에 쓰이고 있다.",
+      "homeDescription": "학생 과학회 ESSENTIA의 회원·전자결재·프로젝트·재정·자료실을 하나로 묶은 운영 플랫폼. 종이로 돌던 계획서와 예산 결재를 3단 순차 승인으로 전산화해 실제 조직 운영에 투입 중인 시스템.",
       "category": "web",
       "status": "launched",
       "isMain": true,
       "featuredOrder": 3,
       "period": {
-        "start": null,
+        "start": "2026-02",
         "end": null
       },
       "links": {
-        "live": null,
-        "github": null,
+        "live": "https://www.essentia-sci.org",
+        "github": "https://github.com/ESSENTIA-Science",
         "demo": null,
         "article": null
       },
@@ -221,55 +221,91 @@
       },
       "techStack": {
         "frontend": [
-          "React",
-          "TypeScript"
+          "Next.js 16",
+          "React 19",
+          "TypeScript",
+          "CSS Modules",
+          "TanStack Query"
         ],
         "backend": [
-          "Node.js"
+          "Spring Boot 4",
+          "Java 21",
+          "Spring Security",
+          "JPA / Hibernate",
+          "Flyway"
         ],
-        "database": [],
-        "infra": [],
-        "ai": [
-          "AI"
+        "database": [
+          "PostgreSQL 17",
+          "Neon"
         ],
-        "tools": []
+        "infra": [
+          "AWS EC2",
+          "S3",
+          "CloudFront",
+          "Docker",
+          "Caddy",
+          "GitHub Actions"
+        ],
+        "ai": [],
+        "tools": [
+          "Gradle",
+          "Testcontainers",
+          "PDFBox"
+        ]
       },
       "team": {
         "type": "solo",
         "size": 1,
         "myRoles": [
-          "Web Developer",
-          "Product Structure",
-          "Frontend"
+          "Tech Lead",
+          "Backend",
+          "Frontend",
+          "Infra"
         ],
-        "contribution": "웹 제품 구조 설계와 전체 구현을 담당"
+        "contribution": "정보통신부장으로 아키텍처 설계부터 백엔드·프론트엔드 구현, AWS 인프라 구축과 배포·운영까지 단독 담당"
       },
       "details": {
-        "problem": "학생 연구 조직의 운영이 홈페이지, 회원 명단, 프로젝트 기록, 공유 자료가 서로 다른 도구에 흩어진 채 이뤄지던 환경. 정보가 분산되면 인수인계가 어렵고, 누가 어떤 권한으로 무엇을 했는지 추적하기 힘들며, 조직이 커질수록 운영 비용이 가파르게 늘어나는 구조.",
-        "solution": "회원·조직·프로젝트·포럼·투표·자료실을 하나의 권한 체계 위에서 운영하는 통합 관리 플랫폼. 조직의 실제 업무 단위를 그대로 기능으로 매핑해, 운영진이 별도 도구 없이 한 시스템 안에서 조직을 관리하도록 한 설계.",
+        "problem": "학회 운영이 종이 양식과 개인 연락에 의존하던 환경. 프로젝트 계획서와 예산신청서는 출력해서 손으로 결재를 받아야 했고, 입회 지원부터 심사·면접·합격·계정 개통까지가 담당자 개인의 기억과 메신저에 흩어져 있었다. 회원이 늘수록 누가 무엇을 언제 승인했는지 추적이 어려워지고, 임원이 교체되면 그동안의 기록이 그대로 사라지는 구조.",
+        "solution": "학회의 실제 업무 단위를 그대로 도메인으로 옮긴 통합 운영 플랫폼. 계획서와 예산신청서를 전자 양식으로 만들고 학부장→운영부장→학회장 3단 순차 결재를 시스템이 강제하도록 설계했으며, 입회는 지원-심사-면접-합격-계정 개통을 하나의 파이프라인으로 연결했다. 모든 상태 변경은 감사 로그로 남겨 인수인계와 추적이 가능하도록 한 구조.",
         "keyFeatures": [
           {
-            "title": "회원·조직 관리",
-            "description": "회원 가입과 역할·권한, 조직 구조를 통합적으로 관리하는 기능. 권한 기반으로 접근을 분리해 조직이 커져도 운영이 흐트러지지 않도록 한 권한 구조."
+            "title": "전자결재 기반 계획서·예산",
+            "description": "프로젝트 계획서와 예산신청서를 전자 양식으로 작성하고, 학부장→운영부장→학회장 3단 순차 승인을 거치게 한 결재 흐름. 승인된 문서는 서버에서 PDF로 렌더링해 그대로 보관·출력할 수 있다."
           },
           {
-            "title": "프로젝트·포럼",
-            "description": "연구 프로젝트의 진행 상황과 포럼 기반 논의 공간을 함께 운영해, 활동과 기록이 같은 맥락 안에서 이어지도록 한 공간."
+            "title": "회원·조직·권한 파이프라인",
+            "description": "입회 지원부터 심사·면접·합격·계정 개통까지를 하나의 흐름으로 묶고, 임원·회원·비회원·익명 4계층 권한 모델 위에서 조직도와 부서 구조를 함께 운영하는 기능."
           },
           {
-            "title": "투표·자료실",
-            "description": "조직 의사결정을 위한 투표 기능과 자료 공유 아카이브를 제공해, 결정 과정과 산출물을 한 곳에 축적하는 구조."
+            "title": "정적 프론트 + API 분리 아키텍처",
+            "description": "프론트엔드에 서버 코드를 하나도 두지 않고 인증·권한·로직을 백엔드로 모은 구성. 정적 export가 잃어버린 동적 라우트는 CloudFront Function의 viewer-request rewrite로, 링크 미리보기는 백엔드가 Java2D로 즉석 렌더링하는 OG 카드로 되살렸다."
+          },
+          {
+            "title": "신원별 반복 검증",
+            "description": "Testcontainers 기반 통합 테스트 175건으로 정책과 규칙을, 실서버 HTTP E2E 103건으로 배선과 인가를 검증. E2E는 같은 요청을 임원·회원·비회원·익명 4개 세션으로 신원만 바꿔 반복해, 권한 검증이 통과한 것처럼 보이는 착시를 막았다."
           }
         ],
-        "architecture": "React·TypeScript 프론트엔드와 Node.js 백엔드로 권한·데이터 흐름을 구성하고, 일부 기능에 AI를 결합해 운영 편의를 높인 구성. 회원·조직·프로젝트·자료가 하나의 데이터 모델 위에서 연결되도록 설계한 정보 구조.",
-        "learnings": "실제 조직의 운영 흐름을 제품 구조로 옮기는 과정에서, 기능 구현보다 요구사항 정리와 정보 구조 설계가 시스템의 성패를 가른다는 점. 사용자가 운영진이라는 점에서, 화려한 기능보다 일관된 권한 모델과 명확한 정보 위계가 더 중요하다는 교훈."
+        "architecture": "브라우저 요청은 Cloudflare DNS를 거쳐 웹은 CloudFront(+WAF·OAC) → S3의 Next.js 정적 export로, API는 Elastic IP를 통해 EC2(t4g.small, ARM) 위 Caddy가 TLS를 자동 갱신하며 Docker로 띄운 Spring Boot 4로 리버스 프록시되는 구성. 데이터는 Neon PostgreSQL 17에 저장하고 스키마는 Flyway가 단독으로 소유한다(ddl-auto는 validate). 파일 업로드는 API가 presigned URL을 발급하면 브라우저가 S3에 직접 PUT하고 서버가 headObject로 재검증하는 흐름. 배포는 GitHub Actions가 OIDC로 역할을 수임해 장기 키 없이 ECR 푸시 → SSM RunCommand 컨테이너 교체, 웹은 S3 sync 후 CloudFront 무효화까지 자동화했다. ALB 없이 Caddy로 TLS를 처리해 월 약 $18로 운영 중이다.",
+        "learnings": "정적 export가 주는 비용·안정성이 SEO와 동적 라우트를 대가로 요구한다는 점을 직접 겪으며, 트레이드오프를 숨기지 않고 문서에 남긴 뒤 rewrite와 서버 OG 렌더링으로 되사는 선택을 한 경험. Neon에 서울 리전이 없어 왕복 77~106ms를 감수한 것처럼, 33명 규모에서는 '최적'보다 '감당 가능한 대가를 명시적으로 고르는 것'이 더 중요하다는 판단. 그리고 X-Forwarded-For 신뢰 경계를 잘못 두면 레이트리밋 우회와 감사 로그 오염이 동시에 생긴다는 것을 테스트로 잡아내며, 권한은 코드가 아니라 검증 설계로 지켜진다는 것을 배웠다."
       },
       "achievements": {
         "awards": [],
         "metrics": [
           {
-            "label": "운영 범위",
-            "value": "회원·조직·프로젝트·포럼·투표·자료실 통합"
+            "label": "REST 엔드포인트",
+            "value": "203개"
+          },
+          {
+            "label": "화면 / DB 테이블",
+            "value": "70개 / 38개"
+          },
+          {
+            "label": "자동화 검증",
+            "value": "통합 175건 + E2E 103건"
+          },
+          {
+            "label": "운영 비용",
+            "value": "월 약 $18"
           }
         ],
         "press": []
